@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 🤍</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ffd6e8, #fff1f7);
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+        text-align: center;
+    }
+
+    h1 {
+        font-family: 'Pacifico', cursive;
+        font-size: 3rem;
+        margin-top: 30px;
+        color: #ff5fa2;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.85);
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 30px;
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .typing {
+        border-right: 3px solid #ff5fa2;
+        display: inline-block;
+        padding-right: 5px;
+        animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+        0% { border-color: transparent; }
+        50% { border-color: #ff5fa2; }
+        100% { border-color: transparent; }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .emoji {
+        position: fixed;
+        font-size: 24px;
+        animation: fall linear infinite;
+        top: -50px;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(110vh) rotate(360deg);
+        }
+    }
+
+    footer {
+        margin: 40px 0;
+        color: #ff5fa2;
+        font-weight: 500;
+    }
+</style>
+</head>
+<body>
+
+<h1>🎉 Selamat Ulang Tahun 🤍 🎂</h1>
+
+<div class="card">
+    <p id="text" class="typing"></p>
+</div>
+
+<footer>
+    🤍🎉 always for you 🎉🤍
+</footer>
+
+<script>
+const message = `selamatt 19 tahunn kesayangan 🤍🥳
+Semoga di umur kamu yang sekarang ini, kamu selalu dikasih kebahagian yg ga ada habisnya, dikasih orang-orang baik, dikasih kekuatan buat ngejar semua mimpi kamu. semoga kamu selalu sehat, senyum kamu ga pernah ilang, dan semoga… kamu selalu inget kalo kamu itu berarti bgt di hidup aku.
+
+makasiii bgt krna selalu nemenin aku di setiap lika liku kehidupan, dan jgn pernah bosen temenan sam aku ya ya, krna aku mau nemenin kamu di hari ulang tahun ulang tahun kamu berikutnya.. jadi orang baik ya ya, dimanapun itu. u are the best person in my life🤍 kebaikan kebaikan kamu ke aku, ga akan pernah aku lupaiin, makasiii krna selalu ngemakesure aku baik baik aja, dan ga ngebiarin aku ngerasa sendiri. selalu pengen liat aku berhasil gapai semua mimpi mimpi yg kerasa mustahil...
+
+makasii juga udah jadi orang yang selalu ada di setiap titik terendah aku. di saat aku ngerasa capek, pengen nyerah, ngerasa ga mampu, tapi kamu selalu kasi aku afirmasi afirmasi positif dan selalu yakinin kalo akuu pasti bisa.
+
+padahal jujur aja… aku sering banget ngerepotin, dan kadang aku ngerasa aku belum bisa jadi temen yang baik bahkan mungkin aku pernah ngecewaiin kamu. tapi kamu tetep ada. ga marah, ga ninggalin, dan tetep nemenin aku. sekali lagi hapy birthday ya ya🥳 i always pray the best for u, and I hope u always win everything u want in ur life🥺🤍`;
+
+let i = 0;
+const speed = 25;
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+typeWriter();
+
+// emoji hujan
+const emojis = ["🤍","🥳","🎂","🎉","✨","💖"];
+setInterval(() => {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(emoji);
+
+    setTimeout(() => {
+        emoji.remove();
+    }, 7000);
+}, 300);
+</script>
+
+</body>
+</html>
